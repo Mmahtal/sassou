@@ -1,0 +1,102 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8e6e9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .intro {
+    padding: 50px 5%;
+    display: flex;
+    flex-direction: row; /* changé de column à row */
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+    }
+}
+
+
+        .intro-text {
+            max-width: 50%;
+        }
+
+        .intro h1 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        .intro-image {
+            max-width: 40%;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .menu-toggle {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: none; /* Cachez-le par défaut sur les grands écrans */
+        }
+        
+        .nav-menu {
+            display: none; /* Cachez le menu par défaut */
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Montrez le bouton "Menu" sur les petits écrans */
+            }
+        
+            .nav-menu.active {
+                display: flex; /* Montrez le menu si la classe "active" est ajoutée */
+                flex-direction: column;
+            }
+        }
+        
