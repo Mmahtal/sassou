@@ -1,102 +1,166 @@
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8e6e9;
-        }
+/* ============================
+   STYLES GÉNÉRAUX DU DOCUMENT
+   ============================ */
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-        }
+   body {
+    font-family: Arial, sans-serif;     /* Définir la police du corps du document */
+    margin: 0;                          /* Supprimer les marges par défaut */
+    padding: 0;                         /* Supprimer les paddings par défaut */
+    background-color: #f8e6e9;         /* Couleur d'arrière-plan pour tout le document */
+}
 
-        .logo {
-            width: 150px;
-        }
+/* =====================
+   BARRE DE NAVIGATION
+   ===================== */
 
-        nav {
-            display: flex;
-            gap: 20px;
-        }
+#navbar {
+    width: 100%;                     /* Largeur de la barre de navigation */
+    z-index: 10;                     /* Superpose la navbar aux autres éléments en cas de chevauchement */
+    display: flex;                   /* Utiliser flexbox pour la mise en page des éléments enfants */
+    justify-content: space-between;  /* Espacer les éléments enfants également */
+    align-items: center;             /* Centrer les éléments enfants verticalement */
+    padding: 10px 20px;              /* Padding autour de la navbar */
+}
 
-        nav a {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-        }
+#navbar a, #navbar button {
+    color: #000; /* Couleur du texte des liens et du bouton dans la navbar */
+}
 
-        .intro {
-    padding: 50px 5%;
-    display: flex;
-    flex-direction: row; /* changé de column à row */
-    align-items: center;
-    justify-content: center;
+/* Liste déroulante de la navbar */
+#navbar ul {
+    display: none;                 /* Caché par défaut */
+    list-style: none;              /* Supprimer les puces de la liste */
+    flex-direction: column;        /* Organiser les éléments de la liste verticalement */
+    gap: 10px;                     /* Espacement entre les éléments de la liste */
+    position: fixed;               /* Position fixe pour qu'il reste en place lors du défilement */
+    top: 0;                        /* Positionné en haut */
+    left: auto;
+    right: 0;                       /* Positionné à gauche */
+    height: auto;                 /* Prendre toute la hauteur de la fenêtre */
+    max-height: 100vh;
+    width: 250px;                  /* Largeur du menu, à ajuster selon vos préférences */
+    background-color: white;      /* Couleur d'arrière-plan du menu */
+    padding: 10px;                 /* Padding autour du menu */
+    border-right: 1px solid #ccc; /* Bordure à droite du menu */
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1); /* Negative value for the horizontal shadow */
+    z-index: 1001;                 /* Plus élevé que l'overlay pour apparaître au-dessus */
+    overflow-y: auto;              /* Barre de défilement vertical si nécessaire */
+    transition: all 0.5s ease;
+}
+#navbar ul li {
+    margin: 8px 0;
+}
+
+#navbar ul li a {
+    text-decoration: none; /* Supprimez les soulignements */
+    color: #333; /* Couleur de texte */
+    padding: 10px 15px; /* Espacement interne pour un toucher plus facile */
+    display: block; /* Permet à tout l'élément de réagir au toucher/clic */
+    transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur de fond */
+}
+
+#navbar ul li a:hover {
+    background-color: #eee; /* Couleur de fond au survol */
+}
+
+
+#navbar a {
+    color: #2c3e50;                     /* Couleur des liens dans la navbar */
+    text-decoration: none;              /* Supprimer le soulignement des liens */
+    padding: 10px 15px;                 /* Espacement autour des liens */
+    display: block;                     /* Afficher les liens comme des blocs */
+    transition: background-color 0.2s; /* Transition pour l'effet hover */
+}
+
+#navbar a:hover {
+    background-color: #f2f2f2;         /* Couleur d'arrière-plan des liens lors du survol */
+}
+
+.toggle {
+    background-color: transparent;     /* Bouton sans couleur d'arrière-plan */
+    border: none;                      /* Supprimer la bordure du bouton */
+    font-size: 24px;                   /* Taille de l'icône du bouton */
+    color: #2c3e50;                    /* Couleur de l'icône du bouton */
+    cursor: pointer;                   /* Afficher un curseur de main lors du survol */
+    margin-right: 60px;                /* Espacement à droite du bouton */
+}
+
+
+.toggle::before {
+    content: '☰';
+}
+
+.toggle.cross::before {
+    content: '✖';
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+
+
+/* ====================
+   SECTION INTRODUCTIVE
+   ==================== */
+
+.intro {
+    padding: 50px 5%;                    /* Espacement autour de la section introductive */
+    display: flex;                       /* Utiliser flexbox pour la mise en page des éléments enfants */
+    flex-direction: row;                 /* Organiser les éléments enfants horizontalement */
+    align-items: center;                 /* Centrer les éléments enfants verticalement */
+    justify-content: center;             /* Centrer les éléments enfants horizontalement */
 }
 
 @media (max-width: 768px) {
     .intro {
-        flex-direction: column;
+        flex-direction: column;          /* Organiser les éléments enfants verticalement sur les petits écrans */
     }
 }
 
+.intro-text {
+    max-width: 40%;                       /* Largeur maximale du texte */
+    display: flex;                        /* Utiliser flexbox pour la mise en page des éléments enfants */
+    flex-direction: column;               /* Organiser les éléments enfants verticalement */
+    justify-content: center;              /* Centrer les éléments enfants verticalement */
+    height: 100%;                         /* S'assurer que le contene
+    /* S'assurer que le conteneur du texte prend toute la hauteur pour centrer le contenu verticalement */
+    height: 100%;                         
+}
 
-        .intro-text {
-            max-width: 50%;
-        }
+.intro h1 {
+    font-size: 2.5em;                     /* Taille du titre principal */
+    color: #000;                          /* Couleur du titre principal */
+    margin-bottom: 20px;                  /* Espacement sous le titre principal */
+}
 
-        .intro h1 {
-            font-size: 2.5em;
-            color: #000;
-            margin-bottom: 20px;
-        }
+.intro p {
+    font-size: 1em;                       /* Taille de la police du paragraphe */
+    color: #333;                          /* Couleur du paragraphe */
+    margin-bottom: 20px;                  /* Espacement sous le paragraphe */
+}
 
-        .intro p {
-            font-size: 1em;
-            color: #333;
-            margin-bottom: 20px;
-        }
+.btn {
+    display: inline-block;                /* Afficher le bouton comme un bloc inline */
+    padding: 10px 20px;                   /* Espacement autour du bouton */
+    background-color: #000;               /* Couleur d'arrière-plan du bouton */
+    color: #fff;                          /* Couleur du texte du bouton */
+    text-decoration: none;                /* Supprimer le soulignement du bouton (car c'est un lien) */
+    border-radius: 25px;                  /* Rayon de la bordure pour des coins arrondis */
+}
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-        }
+.intro-image {
+    width: 40%;                           /* Largeur du conteneur de l'image */
+}
 
-        .intro-image {
-            max-width: 40%;
-        }
-
-        .intro-image img {
-            width: 100%;
-            border-radius: 50%;
-        }
-
-        .menu-toggle {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            display: none; /* Cachez-le par défaut sur les grands écrans */
-        }
-        
-        .nav-menu {
-            display: none; /* Cachez le menu par défaut */
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block; /* Montrez le bouton "Menu" sur les petits écrans */
-            }
-        
-            .nav-menu.active {
-                display: flex; /* Montrez le menu si la classe "active" est ajoutée */
-                flex-direction: column;
-            }
-        }
-        
+.intro-image img {
+    width: 100%;                          /* Faire en sorte que l'image prenne toute la largeur de son conteneur */
+    border-radius: 50%;                   /* Arrondir les coins de l'image */
+}

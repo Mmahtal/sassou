@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <title>Sassou Coaching</title>
     
 </head>
 <body>
-    <header>
-        <img src="assets/image/logo_officielle.png" alt="Sassou Coaching Logo" class="logo">
-        <nav>
-            <a href="#">Nutrition</a>
-            <a href="#">Coaching</a>
-            <a href="#">Contact</a>
+    <div class ="container">
+        <nav id="navbar">
+            <!-- Remplacez "assets\image\logo_officielle.png" par le chemin de votre logo et "Sassou Coaching" par le nom ou la description de votre société -->
+            <a href="/" class="logo">
+                <img src="assets\image\logo_officielle.png" alt="Sassou Coaching">
+            </a>
+    
+            <!-- Bouton pour basculer l'affichage du menu -->
+         <button class="toggle" aria-label="Ouvrir le menu"></button>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
-    </header>
 
     <div class="intro">
         <div class="intro-text">
@@ -32,5 +40,7 @@
             <img src="assets/image/fond.png" alt="Salima's Image">
         </div>
     </div>
+    <script src="menu.js"></script>
+
 </body>
 </html>
